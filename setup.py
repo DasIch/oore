@@ -12,7 +12,7 @@ from setuptools import setup
 setup(
     name='oore',
     description='Object-Oriented Regular Expressions',
-    version='0.1.0',
+    version='0.1.1',
     author='Daniel Neuhäuser',
     author_email='ich@danielneuhaeuser.de',
     url='https://github.com/DasIch/oore',
