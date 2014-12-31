@@ -9,9 +9,14 @@
 from setuptools import setup
 
 
+with open('README.rst', 'r') as readme:
+    long_description = readme.read()
+
+
 setup(
     name='oore',
     description='Object-Oriented Regular Expressions',
+    long_description=long_description,
     version='0.1.1',
     author='Daniel Neuhäuser',
     author_email='ich@danielneuhaeuser.de',
