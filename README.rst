@@ -36,7 +36,7 @@ matches a `Unicode Language Identifier`_::
 
 .. _Unicode Language Identifier: http://www.unicode.org/reports/tr35/#Unicode_language_identifier
 
-This can now be used like a :class:`re.RegexObject`, to get a
-:class:`re.MatchObject` you simply use the `.match()` method::
+This can now be used like a `re.RegexObject`, to get a `re.MatchObject` you
+simply use the `.match()` method::
 
         match = unicode_language_id.match('de-DE')
