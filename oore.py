@@ -9,18 +9,6 @@
 import re
 
 
-class cached_property(object):
-    def __init__(self, getter):
-        self.getter = getter
-
-    def __get__(self, instance, owner):
-        if instance is None:
-            return self
-        value = self.getter(instance)
-        instance.__dict__[self.getter.__name__] = value
-        return value
-
-
 class r(object):
     """
     A wrapper for :class:`re.RegexObject`, that provides several useful ways to
@@ -51,10 +39,7 @@ class r(object):
     """
     def __init__(self, pattern):
         self.pattern = pattern
-
-    @cached_property
-    def _compiled(self):
-        return re.compile(self.pattern)
+        self._compiled = re.compile(self.pattern)
 
     @property
     def flags(self):

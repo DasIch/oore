@@ -6,39 +6,11 @@
     :copyright: 2014 by Daniel Neuhäuser
     :license: BSD, see LICENSE.rst for details
 """
-from oore import cached_property, r
+import re
+
+from oore import r
 
 from pytest import raises
-
-
-class TestCachedProperty(object):
-    def test_getter(self):
-        calls = [0]
-
-        class Foo(object):
-            @cached_property
-            def attribute(self):
-                calls[0] += 1
-                return 'attribute'
-
-        foo = Foo()
-        assert foo.attribute == 'attribute'
-        assert foo.attribute == 'attribute'
-        assert calls == [1]
-
-    def test_setter(self):
-        calls = [0]
-
-        class Foo(object):
-            @cached_property
-            def attribute(self):
-                calls[0] += 1
-                return 'attribute'
-
-        foo = Foo()
-        foo.attribute = 'overwritten'
-        assert foo.attribute == 'overwritten'
-        assert calls == [0]
 
 
 def test_add_text():
@@ -153,3 +125,8 @@ def test_repeat_n_or_more_bytes():
         foo_n_or_more = foo[n, ...]
         for i in range(n, 10):
             assert foo_n_or_more.match(b'foo' * i)
+
+
+def test_check_r_argument_is_valid_regexp():
+    with raises(re.error):
+        r('(')
