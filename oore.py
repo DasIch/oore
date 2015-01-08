@@ -186,7 +186,7 @@ class r(object):
         else:
             if isinstance(self.pattern, bytes):
                 return r('(?P<{}>{})'.format(
-                    self.pattern.decode('latin1'),
-                    name
+                    name,
+                    self.pattern.decode('latin1')
                 ).encode('latin1'))
-            return r(u'(?P<{}>{})'.format(self.pattern, name))
+            return r(u'(?P<{}>{})'.format(name, self.pattern))

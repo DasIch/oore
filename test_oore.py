@@ -149,16 +149,16 @@ def test_numbered_groups_bytes():
 
 
 def test_named_groups_text():
-    foo = r(u'foo').grouped('foo')
+    foo = r(u'foo').grouped('group')
     bar = r(u'bar')
     foobar = foo + bar
     match = foobar.match(u'foobar')
-    assert match.group('foo') == u'foo'
+    assert match.group('group') == u'foo'
 
 
 def test_named_groups_bytes():
-    foo = r(b'foo').grouped('foo')
+    foo = r(b'foo').grouped('group')
     bar = r(b'bar')
     foobar = foo + bar
     match = foobar.match(b'foobar')
-    assert match.group('foo') == b'foo'
+    assert match.group('group') == b'foo'

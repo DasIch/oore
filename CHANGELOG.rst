@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Version 0.2.1
+=============
+
+- Fix issue with named groups.
+
 Version 0.2.0
 =============
 
