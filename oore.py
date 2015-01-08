@@ -69,7 +69,7 @@ class r(object):
                     ).encode('latin1')
                 )
             else:
-                return r('(?:{})(?:{})'.format(self.pattern, other.pattern))
+                return r(u'(?:{})(?:{})'.format(self.pattern, other.pattern))
         return NotImplemented
 
     def __or__(self, other):
@@ -89,7 +89,7 @@ class r(object):
                     ).encode('latin1')
                 )
             else:
-                return r('(?:{})|(?:{})'.format(self.pattern, other.pattern))
+                return r(u'(?:{})|(?:{})'.format(self.pattern, other.pattern))
         return NotImplemented
 
     def __getitem__(self, index):
@@ -102,7 +102,7 @@ class r(object):
                     ).encode('latin1')
                 )
             else:
-                return r('(?:{}){{{}}}'.format(self.pattern, index))
+                return r(u'(?:{}){{{}}}'.format(self.pattern, index))
         elif isinstance(index, tuple) and len(index) == 2:
             if (
                 isinstance(index[0], int) and isinstance(index[1], int) and
@@ -116,7 +116,7 @@ class r(object):
                         ).encode('latin1')
                     )
                 else:
-                    return r('(?:{}){{{},{}}}'.format(self.pattern, *index))
+                    return r(u'(?:{}){{{},{}}}'.format(self.pattern, *index))
             elif (
                 isinstance(index[0], int) and index[1] is Ellipsis
             ):
@@ -128,7 +128,7 @@ class r(object):
                             ).encode('latin1')
                         )
                     else:
-                        return r('(?:{})*'.format(self.pattern))
+                        return r(u'(?:{})*'.format(self.pattern))
                 elif index[0] == 1:
                     if isinstance(self.pattern, bytes):
                         return r(
@@ -137,7 +137,7 @@ class r(object):
                             ).encode('latin1')
                         )
                     else:
-                        return r('(?:{})+'.format(self.pattern))
+                        return r(u'(?:{})+'.format(self.pattern))
                 else:
                     if isinstance(self.pattern, bytes):
                         return r(
@@ -148,7 +148,7 @@ class r(object):
                         )
                     else:
                         return r(
-                            '(?:{pattern}){{{n}}}(?:{pattern})*'.format(
+                            u'(?:{pattern}){{{n}}}(?:{pattern})*'.format(
                                 pattern=self.pattern, n=index[0]
                             )
                         )

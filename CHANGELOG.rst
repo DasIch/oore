@@ -6,6 +6,8 @@ Version 0.2.1
 
 - Fix issue with named groups.
 - Nicer `TypeError`\s, if pattern types are unequal.
+- Fix issues with byte instead of unicode strings being returned on Python
+  2.7.
 
 Version 0.2.0
 =============
