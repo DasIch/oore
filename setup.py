@@ -17,7 +17,7 @@ setup(
     name='oore',
     description='Object-Oriented Regular Expressions',
     long_description=long_description,
-    version='0.2.0',
+    version='0.2.1',
     author='Daniel Neuhäuser',
     author_email='ich@danielneuhaeuser.de',
     url='https://github.com/DasIch/oore',
