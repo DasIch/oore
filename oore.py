@@ -175,10 +175,18 @@ class r(object):
     def subn(self, repl, string, count=0):
         return self._compiled.subn(repl, string, count=count)
 
-    def grouped(self):
+    def grouped(self, name=None):
         """
         Returns this regular expression object, wrapped in a group.
         """
-        if isinstance(self.pattern, bytes):
-            return r(b'({})'.format(self.pattern.decode('latin1')).encode('latin1'))
-        return r(u'({})'.format(self.pattern))
+        if name is None:
+            if isinstance(self.pattern, bytes):
+                return r('({})'.format(self.pattern.decode('latin1')).encode('latin1'))
+            return r(u'({})'.format(self.pattern))
+        else:
+            if isinstance(self.pattern, bytes):
+                return r('(?P<{}>{})'.format(
+                    self.pattern.decode('latin1'),
+                    name
+                ).encode('latin1'))
+            return r(u'(?P<{}>{})'.format(self.pattern, name))

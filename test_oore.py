@@ -132,9 +132,33 @@ def test_check_r_argument_is_valid_regexp():
         r('(')
 
 
-def test_numbered_groups():
-    foo = r('foo').grouped()
-    bar = r('bar')
+def test_numbered_groups_text():
+    foo = r(u'foo').grouped()
+    bar = r(u'bar')
     foobar = foo + bar
-    match = foobar.match('foobar')
-    assert match.group(1) == 'foo'
+    match = foobar.match(u'foobar')
+    assert match.group(1) == u'foo'
+
+
+def test_numbered_groups_bytes():
+    foo = r(b'foo').grouped()
+    bar = r(b'bar')
+    foobar = foo + bar
+    match = foobar.match(b'foobar')
+    assert match.group(1) == b'foo'
+
+
+def test_named_groups_text():
+    foo = r(u'foo').grouped('foo')
+    bar = r(u'bar')
+    foobar = foo + bar
+    match = foobar.match(u'foobar')
+    assert match.group('foo') == u'foo'
+
+
+def test_named_groups_bytes():
+    foo = r(b'foo').grouped('foo')
+    bar = r(b'bar')
+    foobar = foo + bar
+    match = foobar.match(b'foobar')
+    assert match.group('foo') == b'foo'
