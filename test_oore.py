@@ -130,3 +130,11 @@ def test_repeat_n_or_more_bytes():
 def test_check_r_argument_is_valid_regexp():
     with raises(re.error):
         r('(')
+
+
+def test_numbered_groups():
+    foo = r('foo').grouped()
+    bar = r('bar')
+    foobar = foo + bar
+    match = foobar.match('foobar')
+    assert match.group(1) == 'foo'

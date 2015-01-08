@@ -11,6 +11,7 @@ Version 0.1.1
 =============
 
 - Add description for PyPI.
+- Add `r.grouped()` to create groups.
 
 
 Version 0.1.0
