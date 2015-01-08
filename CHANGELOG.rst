@@ -5,6 +5,7 @@ Version 0.2.1
 =============
 
 - Fix issue with named groups.
+- Nicer `TypeError`\s, if pattern types are unequal.
 
 Version 0.2.0
 =============

@@ -57,8 +57,8 @@ class r(object):
         if isinstance(other, r):
             if self.pattern.__class__ != other.pattern.__class__:
                 raise TypeError(
-                    'incompatible pattern types: {} and {}'.format(
-                        self.pattern.__class__, other.pattern.__class__
+                    'incompatible pattern types: {!r} and {!r}'.format(
+                        self.pattern, other.pattern
                     )
                 )
             elif isinstance(self.pattern, bytes):
@@ -76,9 +76,9 @@ class r(object):
         if isinstance(other, r):
             if self.pattern.__class__ != other.pattern.__class__:
                 raise TypeError(
-                    'incompatible pattern types: {} and {}'.format(
-                        self.pattern.__class__,
-                        other.pattern.__class__
+                    'incompatible pattern types: {!r} and {!r}'.format(
+                        self.pattern,
+                        other.pattern
                     )
                 )
             elif isinstance(self.pattern, bytes):
